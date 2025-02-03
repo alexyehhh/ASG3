@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+    <style>
+      /* Basic layout styling */
+      body {
+        display: flex; /* Use flexbox for layout */
+        align-items: flex-start; /* Align items to the top */
+        gap: 20px; /* Space between the canvas and the image container */
+      }
+
+      #canvas-container {
+        flex: 2; /* Canvas container takes more space */
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <!-- Canvas Container -->
+    <div id="canvas-container">
+      <div style="margin-left: 0;">
+        <!-- Text centered above the canvas -->
+        <div style="margin-bottom: 10px; text-align: center; width: 400px;">
+          <p style="font-size: 25px; margin: 0;">Block 3D Animal</p>
+          <p style="font-size: 20px; margin: 0;">Alex Yeh</p>
+          <p style="font-size: 16px; margin: 0;">alpyeh@ucsc.edu</p>
+        </div>
+        <!-- Canvas -->
+        <canvas id="webgl" width="400" height="400">
+          Please use a browser that supports "canvas"
+        </canvas>
+        <p id="numdot"> XXX </p> <!-- Number of points -->
+        <!-- Buttons -->
+        <p>
+        Legs Animation:
+          <button type="button" id="animationLegsOnButton">ON</button>
+          <button type="button" id="animationLegsOffButton">OFF</button>
+        </p>
+        <!-- Sliders -->
+        <p>
+          Leg 1 Slider <input type="range" min="-20" max="0" value="0" class="slider" id="leg1Slider">
+          Foot 1 Slider <input type="range" min="-45" max="45" value="0" class="slider" id="foot1Slider">
+          Toe 1 Slider <input type="range" min="-10" max="0" value="0" class="slider" id="toe1Slider">
+        </p>
+        <p>
+          Leg 2 Slider <input type="range" min="-20" max="0" value="0" class="slider" id="leg2Slider">
+          Foot 2 Slider <input type="range" min="-45" max="45" value="0" class="slider" id="foot2Slider">
+          Toe 2 Slider <input type="range" min="-10" max="0" value="0" class="slider" id="toe2Slider">
+        </p>
+        <p>
+          Leg 3 Slider <input type="range" min="-20" max="0" value="0" class="slider" id="leg3Slider">
+          Foot 3 Slider <input type="range" min="-45" max="45" value="0" class="slider" id="foot3Slider">
+          Toe 3 Slider <input type="range" min="-10" max="0" value="0" class="slider" id="toe3Slider">
+        </p>
+        <p>
+          Leg 4 Slider <input type="range" min="-20" max="0" value="0" class="slider" id="leg4Slider">
+          Foot 4 Slider <input type="range" min="-45" max="45" value="0" class="slider" id="foot4Slider">
+          Toe 4 Slider <input type="range" min="-10" max="0" value="0" class="slider" id="toe4Slider">
+        </p>
+        <p>
+          Camera Angle X <input type="range" min="-180" max="180" value="0" class="slider" id="angleSliderX">
+          Camera Angle Y <input type="range" min="-180" max="180" value="0" class="slider" id="angleSliderY">
+          <button id="resetCameraButton">Reset Camera Angle</button>
+        </p>
+
+        <p id="hiddenText" style="display: none;">
+          For my block 3d animal, I made a dog. It is comprised of 21 parts.
+          All parts of each leg are controllable with sliders which include the first, 
+          second, and third level joints (legs, feet, and toes respectively). 
+          The on/off buttons for the animation makes all the legs move to make it look like the dog is walking. 
+          The body, head, legs, and toes are a golden tan color, the ears, nose, feet, and tail are brown, and the eyes are dark brown. 
+          The shift click animation causes the dog to stick its tongue out. 
+          A user can also click on the screen and drag to rotate the dog as well as using the sliders to do so. 
+          I also added a reset camera angle button in case the user wants to reset the camera angle.
+          I used ChatGPT to help me code the functions for mouse dragging control such as mouseDown, mouseMove, and mouseUp.
+        </p>
+        <button onclick="toggleText()">Notes for Grader</button>
+      </div>
+    </div>
+
+    <!-- Import the JavaScript files -->
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="BlockyAnimal.js"></script>
+  </body>
+</html>
