@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+    <style>
+      /* Basic layout styling */
+      body {
+        display: flex; /* Use flexbox for layout */
+        align-items: flex-start; /* Align items to the top */
+        gap: 20px; /* Space between the canvas and the image container */
+      }
+
+      #canvas-container {
+        flex: 2; /* Canvas container takes more space */
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <!-- Canvas Container -->
+    <div id="canvas-container">
+      <div style="margin-left: 0;">
+        <!-- Text centered above the canvas -->
+        <div style="margin-bottom: 10px; text-align: center; width: 400px;">
+          <p style="font-size: 25px; margin: 0;">Blocky World</p>
+          <p style="font-size: 20px; margin: 0;">Alex Yeh</p>
+          <p style="font-size: 16px; margin: 0;">alpyeh@ucsc.edu</p>
+        </div>
+        <!-- Canvas -->
+        <canvas id="webgl" width="400" height="400">
+          Please use a browser that supports "canvas"
+        </canvas>
+        <p id="numdot"> XXX </p>
+
+        <p> Movement: <br>
+          W: move the camera forward <br>
+          A: move the camera to the left<br>
+          S: move the camera backwards<br>
+          D: move the camera to the right<br>
+          Q: rotate the camera to the left <br>
+          E: rotate the camera to the right <br>
+          You can also use rotate the camera with the mouse by holding and dragging
+        </p>
+
+        <p id="mazeAnswers" style="display: none;">
+          The correct path to exit the maze is as follows: <br>
+          1. Go Straight <br>
+          2. Turn Right <br>
+          3. Go Straight <br>
+          4. When possible, turn Left <br>
+          5. Go Straight <br>
+          6. At the four way intersection, turn right and go straight <br>
+          7. When the next left turn is possible, turn left and go straight <br>
+          8. Turn left and go straight <br>
+          9. Turn right and go straight <br>
+          10. When possible, turn right and go straight <br>
+          11. Turn left and walk straight to the end <br>
+        </p>
+        <button id="mazeButton" onclick="toggleMazeAnswers()">Show Maze Answers</button>
+
+        <!-- Hidden button to display text for maze answers-->
+        <p id="hiddenText" style="display: none;">
+          The two textures I used was stone, for the outer wall, and dirt, for the maze walls.
+          Both of these textures were inspired by Minecraft. For the game, I created a maze,
+          in which the answer can be viewed by clicking the button above. I used Chatgpt to debug
+          my renderfast function and implement the camera movement with the mouse.
+        </p>
+        <button id="notesButton" onclick="toggleNotes()">Show Notes for Grader</button>
+      </div>
+    </div>
+
+    <!-- Import the JavaScript files -->
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Camera.js"></script>
+    <script src="World.js"></script>
+  </body>
+</html>
